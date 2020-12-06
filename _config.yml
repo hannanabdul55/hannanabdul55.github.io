@@ -36,8 +36,8 @@ additional_links:
 # Google Analytics and Tag Manager
 # Using more than one of these may cause issues with reporting
 # gtm: "G-6C1CWC3HQW"
-# gtag: "UA-00000000-0"
-google_analytics: "G-6C1CWC3HQW"
+gtag: "G-6C1CWC3HQW"
+# google_analytics: "G-6C1CWC3HQW"
 
 # About Section
 # about_title: About Me (Use this to override about section title)
