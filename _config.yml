@@ -1,0 +1,186 @@
+# Site
+repository: hannanabdul55/hannanabdul55.github.io
+# favicon: Directory of your favicon (eg. images/favicon.ico)(optional)
+
+# Content configuration version
+version: 2
+
+# Personal info
+name: Abdul Hannan Kanji
+title: Graduate Student, University of Massachusetts, Amherst
+email: akanji at cs dot umass dot edu
+# email_title: Email (Email title override)
+# phone: Your phone number (optional)
+# phone_title: Phone (Phone title override)
+website: https://abdulhannan.in
+# website_title: Web (Website title override)
+
+# Dark Mode (true/false/never)
+darkmode: never
+
+# Social links
+github_username:  hannanabdul55
+linkedin_username: hannanabdul55
+# Additional icon links
+additional_links:
+- title: Public code stats
+  icon: fas fa-code
+  url: https://sourcerer.io/hannanabdul55
+- title: Resume
+  icon: fas fa-file-alt
+  url: https://resume.abdulhannan.in
+# - title: another link
+#   icon: font awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&s=brands&m=free)
+#   url: Link url (eg. https://google.com)
+
+# Google Analytics and Tag Manager
+# Using more than one of these may cause issues with reporting
+# gtm: "G-6C1CWC3HQW"
+# gtag: "UA-00000000-0"
+google_analytics: "G-6C1CWC3HQW"
+
+# About Section
+# about_title: About Me (Use this to override about section title)
+about_profile_image: images/abdul.jpeg
+about_content: | # this will include new lines to allow paragraphs
+  Hi, I am Abdul Hannan, a Master's student at University of Massachusetts, Amherst. My research interests lies in **Fairness and Safety in Machine Learning**. 
+
+  I am working under [Prof. Philip Thomas](https://people.cs.umass.edu/~pthomas/) on a [library](https://seldonian-fairml.readthedocs.io/en/latest/) to build safe models ([Github](https://github.com/hannanabdul55/seldonian-fairness)).
+
+  I am also working on maintaing the [COVID-19 Forecast hub](https://covid19forecasthub.org) under [Prof. Nicholas Reich](https://reichlab.io).   
+
+  When not in front of my laptop, I usually hike or go for a run. I also play the drums, mostly as a way to de-stress! 
+
+
+
+content:
+  - title: Projects # Title for the section
+    layout: list # Type of content section (list/text)
+    content:
+      - title: Seldonian Library
+        layout: left
+        link: https://seldonian-fairml.readthedocs.io/en/latest/
+        link_text: Project homepage
+        additional_links:
+          - title:  Github page
+            icon: fab fa-github
+            url: https://github.com/hannanabdul55/seldonian-fairness
+        description: | # this will include new lines to allow paragraphs
+          This is a Python library that can be used by developers to train ML models, and RL Agents using the Seldonian Framework explained [in this paper](https://science.sciencemag.org/cgi/rapidpdf/366/6468/999).
+          You can use any of the existing optimization techniques in [scipy.optimize](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html) package or also use the [CMA-ES](https://en.wikipedia.org/wiki/CMA-ES) implementation in the library. 
+      - title: Fairlearn
+        layout: left
+        link: https://fairlearn.github.io/
+        link_text:  Homepage
+        additional_links:
+          - title: Github page
+            icon: fab fa-github
+            url: https://github.com/fairlearn/fairlearn
+        description: |
+          Fairlearn is an Open Source python library started at Microsoft that can be used to train ML models under various constraints.
+          I implemented the Equality of Opportunity constraint on Fairlearn and worked on experiments on scalability with respect to training models using Fairlearn.  
+
+
+  - title: Experience
+    layout: list
+    content:
+      - layout: left
+        title: Reich Lab, UMass Amherst
+        sub_title: Research Programmer
+        caption: June 2020-present
+        link: https://covid19forecasthub.org
+        description: | # this will include new lines to allow paragraphs
+          At Reich Lab, I work on maintaining and developing features in the hub like the [visualization](https://viz.covid19forecasthub.org), the data acceptance pipeline and the website. 
+
+      - layout: left
+        title: Intuit Inc., Mountain View, CA
+        sub_title: Software Development Engineer 2
+        caption: August 2017-July 2019
+        link: https://intuit.com
+        description: |
+          At Intuit, I worked as a software developer on various Quickbooks products.  
+
+  - title: Education
+    layout: list
+    content:
+      - layout: left
+        title: University of Massachusetts, Amherst
+        link: https://umass.edu
+        sub_title: Master's, Computer Science
+        caption: 2019-2021
+        description: |
+          ## Coursework  
+          - Machine Learning.
+          - Neural Networks.
+          - Probabilistic Graphical Modeling.
+          - Advanced Natural Language Processing.
+          - Reinforcement Learning.
+          - Algorithmic Fairness and Strategic Behavior.
+
+      - layout: left
+        title: PES University
+        link: https://pes.edu
+        sub_title: Bachelor's of Engineering, Computer Science
+        caption: 2011-2015
+        description: |
+          ## Coursework
+          - Data Mining
+          - Natural Language Processing
+          - Cloud Computing and Big Data
+  - title: Other Projects
+    layout: list
+    content:
+      - title: Voice Triggers
+        layout: left
+        link:  https://abdulhannan.in/VoiceTriggers
+        link_text: Project homepage
+        additional_links:
+          - title: Brief report
+            icon: fas fa-file-pdf
+            url: https://abdulhannan.in/SpeechMap.pdf
+        description: |
+          Worked on the CMUSphinx library on porting it to mobile devices. This is a Java library that maps speech to a unique identifier. This can be used in a sbtract way to map these IDs to _specific_ actions/triggers.   
+
+          This speech recognition library is language agnostic. As a part of the project, we also ported some modules of the Sphinx package to Android.
+      - title:  Unified Heterogeneous Hybrid Cloud Management
+        layout: left
+        description: |
+          This Project aims at creating a unified management interface for the vSphere and Openstack clouds which aids in easy interoperability between the two clouds and flexibility of choice to deploy applications in either one of the infrastructures.  
+
+          In order to facilitate the above requirement, a plugin for VMware vSphere was developed which could seamlessly interact with the OpenStack Deployment and perform all the basic cloud functionalities like Instance deployment, suspension, etc. with a single Unified platform without gaining the extra knowledge of usage of the OpenStack interface. Additionally, a seamless private networking interface was also created between the VMs of a tenant which are distributed between the two clouds.
+      
+      - title: Caching for Distributed and Hybrid Clouds
+        layout: left
+        link: http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7079280&isnumber=7079252
+        link_text: Paper
+        description: |
+          Hybrid clouds help in establishing a cost effective, reliable and scalable solution to limitations in traditional on-premise data-center. There is an increasing requirement for federated hybrid cloud solutions to allow private clouds to leverage different public cloud providers. Federated cloud solutions should accommodate infrastructure constraints, balance load between different clouds and keep the cost at a minimal for the client. The following paper proposes an architecture for hybrid clouds called Simple Cloud Federation (SCF). It differs from existing architectures in that it leverages the hierarchical organization features already found in existing cloud systems. It is thus general and easy to implement across a variety of cloud systems, including OpenStack and Amazon. The paper contains details of our OpenStack implementation.
+      
+
+# Footer
+footer_show_references: true
+references_title: Built using the modern-resume-theme
+
+# Build settings
+theme: modern-resume-theme #(Use this is you are hosting your resume yourself)
+remote_theme: sproogen/modern-resume-theme #(Use this if you are hosting your resume on GitHub)
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+plugins:
+ - jekyll-seo-tag
+
+exclude : [
+  "Gemfile",
+  "Gemfile.lock",
+  "node_modules",
+  "vendor/bundle/",
+  "vendor/cache/",
+  "vendor/gems/",
+  "vendor/ruby/",
+  "lib/",
+  "scripts/",
+  "docker-compose.yml",
+  ]
