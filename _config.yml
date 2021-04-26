@@ -51,7 +51,7 @@ about_content: | # this will include new lines to allow paragraphs
 
   When not in front of my laptop, I usually hike or go for a run. I also play the drums, mostly as a way to de-stress! 
 
-
+  I recently created a [bot](/bot) to ask for any available resources at this ongoing deadly second wave in India. 
 
 content:
   - title: Projects # Title for the section
