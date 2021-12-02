@@ -7,7 +7,7 @@ version: 2
 
 # Personal info
 name: Abdul Hannan Kanji
-title: Graduate Student, University of Massachusetts, Amherst
+title: Applied Data Scientist, Sway AI
 email: akanji at cs dot umass dot edu
 # email_title: Email (Email title override)
 # phone: Your phone number (optional)
@@ -43,7 +43,7 @@ gtag: "G-6C1CWC3HQW"
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/abdul.jpeg
 about_content: | # this will include new lines to allow paragraphs
-  Hi, I am Abdul Hannan, a Master's student at University of Massachusetts, Amherst. My research interests lies in **Fairness and Safety in Machine Learning**. 
+  Hi, I am Abdul Hannan, an Applied Data Scientist at Sway AI. My research interests lies in **Fairness and Safety in Machine Learning**. 
 
   I am working under [Prof. Philip Thomas](https://people.cs.umass.edu/~pthomas/) on a [library](https://seldonian-fairml.readthedocs.io/en/latest/) to build safe models ([Github](https://github.com/hannanabdul55/seldonian-fairness)).
 
@@ -85,9 +85,17 @@ content:
     layout: list
     content:
       - layout: left
+        title: Sway AI
+        sub_title: Applied Data Scientist
+        caption: July 2021-present
+        description: |
+                      At Sway AI, I work on various Data Science related tasks and build the necessary 
+                      infrastructure around the models that we develop within Sway AI.
+
+      - layout: left
         title: Reich Lab, UMass Amherst
         sub_title: Research Programmer
-        caption: June 2020-present
+        caption: June 2020-May 2021
         link: https://covid19forecasthub.org
         description: | # this will include new lines to allow paragraphs
           At Reich Lab, I work on maintaining and developing features in the hub like the [visualization](https://viz.covid19forecasthub.org), the data acceptance pipeline and the website. 
@@ -116,6 +124,7 @@ content:
           - Advanced Natural Language Processing.
           - Reinforcement Learning.
           - Algorithmic Fairness and Strategic Behavior.
+          - Advances Algorithms
 
       - layout: left
         title: PES University
