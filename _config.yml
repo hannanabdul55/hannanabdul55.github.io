@@ -147,5 +147,14 @@ exclude : [
   "scripts/",
   "docker-compose.yml",
   ".idea/",
-  "PRODUCT.md"
+  "PRODUCT.md",
+  "docs/",
+  "README.md",
+  "CODE_OF_CONDUCT.md",
+  "CONTRIBUTING.md",
+  "LICENSE",
+  "modern-resume-theme.gemspec",
+  "Procfile",
+  "app.json",
+  "screenshot.png"
   ]
