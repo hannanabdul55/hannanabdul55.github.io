@@ -2,6 +2,18 @@
   max-width: var(--measure);
   margin: 0 auto;
   padding: var(--space-5) var(--space-5) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.site-location {
+  margin: 0;
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--text-muted);
 }
 
 .site-nav {
@@ -34,6 +46,7 @@
 @media (max-width: 640px) {
   .site-header { padding: var(--space-4) var(--space-4) 0; }
   .site-nav { justify-content: flex-start; }
+  .site-location { width: 100%; }
 }
 
 .page {

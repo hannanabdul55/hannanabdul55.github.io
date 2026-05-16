@@ -1,5 +1,6 @@
 {%- assign email = site.email | replace: ' at ', '@' | replace: ' dot ', '.' | replace: ' ', '' -%}
 <header class="site-header">
+  <p class="site-location">San Francisco</p>
   <nav class="site-nav" aria-label="Profile links">
     <a href="mailto:{{ email }}">email</a>
     {%- if site.github_username -%}
