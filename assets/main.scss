@@ -1,5 +1,8 @@
 ---
-# Front matter comment to ensure Jekyll properly reads file.
+# Front matter so Jekyll processes this file
 ---
 
-@import 'modern-resume-theme';
+@import 'tokens';
+@import 'base';
+@import 'layout';
+@import 'components';

@@ -1,9 +1,4 @@
-<div class="container footer-container">
-  <p>
-    {{ site.name | escape }} -
-    <a href="mailto:{{ site.email }}" target="_blank">{{ site.email | escape }}</a>
-    {%- if site.footer_show_references -%}
-      &nbsp;- {{ site.references_title | default: "References on request" }}
-    {%- endif -%}
-  </p>
-</div>
+{%- assign email = site.email | replace: ' at ', '@' | replace: ' dot ', '.' | replace: ' ', '' -%}
+<footer class="footer">
+  <p>Mountain View, California. Last touched {{ 'now' | date: "%B %Y" }}.</p>
+</footer>

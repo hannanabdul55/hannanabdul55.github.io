@@ -1,13 +1,13 @@
-<div class="container intro-container">
-  <h3>{{ site.about_title | default: "About Me" }}</h3>
-  <div class="row clearfix">
-    {%- if site.about_profile_image -%}
-      <div class="col-xs-12 col-sm-4 col-md-3 no-print">
-        <span class="profile-img" style="background-image: url({{ site.about_profile_image | relative_url }})"></span>
-      </div>
-    {%- endif -%}
-    <div class="{{ 'col-xs-12 ' }}{%- if site.about_profile_image -%}col-sm-8 col-md-9 col-print-12{%- endif -%}">
+{%- assign email = site.email | replace: ' at ', '@' | replace: ' dot ', '.' | replace: ' ', '' -%}
+<section class="about">
+  {%- if site.about_profile_image -%}
+    <img class="about__portrait" src="{{ site.about_profile_image | relative_url }}" alt="{{ site.name | escape }}">
+  {%- endif -%}
+
+  <div class="about__text">
+    <h1 class="intro">{{ site.name | escape }}.</h1>
+    <div class="lede">
       {{ site.about_content | strip | markdownify }}
     </div>
   </div>
-</div>
+</section>

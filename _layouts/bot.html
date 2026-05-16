@@ -3,42 +3,16 @@
 
 {%- include head.html -%}
 
-<body class="{% if site.darkmode == true and site.darkmode != 'never' %}dark{% endif %}">
-  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-<df-messenger
-  intent="WELCOME"
-  chat-title="COVIDIndia-Chatbot"
-  agent-id="66abf6fe-80ee-4b2a-b182-6341dce4c3c6"
-  language-code="en"
-></df-messenger>
-  {%- include header.html -%}
-
-  <main class="page-content" aria-label="Content">
-    <div class="wrapper">
-
-      {%- if jekyll.environment == 'production' and site.gtm -%}
-        {%- include gtm_body.html -%}
-      {%- endif -%}
-
-      {%- include about.html -%}
-
-      {%- if site.version == 2 -%}
-        {% for section in site.content %}
-          <div class="container {{ section.layout }}-container">
-            <h3>{{ section.title }}</h3>
-            {% include {{ section.layout | prepend: "section-" | append: ".html" }} content=section.content %}
-          </div>
-        {% endfor %}
-      {% else %}
-        {%- include v1/default.html -%}
-      {%- endif -%}
+<body>
+  <main class="page">
+    <h1 class="intro">COVID-India Chatbot</h1>
+    <div class="lede">
+      <p>This page hosted a Dialogflow-based chatbot that pointed visitors to available COVID-19 resources during the 2021 second wave in India. The bot is no longer maintained.</p>
+      <p><a href="{{ '/' | relative_url }}">Back to home</a>.</p>
     </div>
   </main>
 
   {%- include footer.html -%}
-  {% if site.darkmode == false %}
-    <script src="{{ '/assets/js/index.js' | relative_url }}"></script>
-  {% endif %}
 </body>
 
 </html>
