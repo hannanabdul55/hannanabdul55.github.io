@@ -1,0 +1,445 @@
+---
+import Base from '../layouts/Base.astro';
+import Contours from '../components/Contours.astro';
+import {
+  person,
+  links,
+  intro,
+  google,
+  earlier,
+  research,
+  education,
+  offTheClock,
+} from '../data/site';
+
+const photoCount = Math.min(offTheClock.photos.length, 4);
+---
+
+<Base>
+  <header class="hero">
+    <Contours />
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow reveal" style="--i: 0">{person.role} · {person.location}</p>
+        <h1 class="reveal" style="--i: 1">{person.name}</h1>
+        <p class="headline reveal" style="--i: 2">{intro.headline}</p>
+        <p class="lede reveal" style="--i: 3">{intro.lede}</p>
+        <ul class="actions reveal" style="--i: 4" aria-label="Quick links">
+          <li><a class="primary" href={links.resume}>Resume <span aria-hidden="true">↗</span></a></li>
+          <li><a href={links.linkedin} rel="me">LinkedIn</a></li>
+          <li><a href={`mailto:${person.email}`}>Email</a></li>
+          <li><a href={links.github} rel="me">GitHub</a></li>
+        </ul>
+      </div>
+      <figure class="portrait reveal" style="--i: 2">
+        <img
+          src={person.portrait.src}
+          alt={person.portrait.alt}
+          width="640"
+          height="640"
+          fetchpriority="high"
+        />
+      </figure>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="band" aria-labelledby="google-heading">
+      <div class="label">
+        <h2 id="google-heading">At Google</h2>
+        <p class="label-meta">Since {google.since}</p>
+      </div>
+      <div class="content">
+        <p class="role-line">{google.title}</p>
+        <ol class="highlights">
+          {
+            google.highlights.map((h, i) => (
+              <li>
+                <span class="num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                <div>
+                  <h3>{h.name}</h3>
+                  <p>{h.body}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="earlier-heading">
+      <div class="label">
+        <h2 id="earlier-heading">Before Google</h2>
+      </div>
+      <div class="content">
+        <ul class="rows">
+          {
+            earlier.map((e) => (
+              <li>
+                <p class="row-head">
+                  <span class="row-name">{e.href ? <a href={e.href}>{e.place}</a> : e.place}</span>
+                  <span class="row-role">{e.role}</span>
+                  <span class="row-when">{e.when}</span>
+                </p>
+                <p>{e.body}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="research-heading">
+      <div class="label">
+        <h2 id="research-heading">Research &amp; open source</h2>
+        <p class="label-meta"><a href={links.scholar}>Google Scholar</a></p>
+      </div>
+      <div class="content">
+        <ul class="rows">
+          {
+            research.map((r) => (
+              <li>
+                <p class="row-head">
+                  <span class="row-name">{r.name}</span>
+                  <span class="row-role">{r.context}</span>
+                </p>
+                <p>{r.body}</p>
+                <p class="row-links">
+                  {r.links.map((l) => (
+                    <a href={l.href}>{l.label}</a>
+                  ))}
+                </p>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="education">
+          <span class="visually-hidden">Education: </span>
+          {
+            education.map((e) => (
+              <span>
+                {e.degree}, {e.school} <span class="row-when">{e.when}</span>
+              </span>
+            ))
+          }
+        </p>
+      </div>
+    </section>
+
+    <section class="off" aria-labelledby="off-heading">
+      <div class="off-text">
+        <h2 id="off-heading">Off the clock</h2>
+        <p>{offTheClock.body}</p>
+      </div>
+      <div class={`photos photos-${photoCount}`}>
+        {
+          offTheClock.photos.slice(0, 4).map((p) => (
+            <figure>
+              <img src={p.src} alt={p.alt} loading="lazy" decoding="async" />
+              <figcaption>{p.caption}</figcaption>
+            </figure>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</Base>
+
+<style>
+  /* Hero: the marigold band is the page's one loud gesture. */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--marigold);
+    color: var(--ink);
+  }
+
+  .hero-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: end;
+    padding: clamp(3rem, 8vw, 7.5rem) var(--gutter) clamp(3rem, 6vw, 5.5rem);
+    max-width: 90rem;
+  }
+
+  .eyebrow {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--step--1);
+    letter-spacing: 0.02em;
+    margin-bottom: 1.25rem;
+  }
+
+  h1 {
+    font-size: var(--step-4);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+    font-variation-settings: 'opsz' 96;
+  }
+
+  .headline {
+    margin-top: clamp(1.25rem, 3vw, 2rem);
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    max-width: 22ch;
+  }
+
+  .lede {
+    margin-top: 1.1rem;
+    max-width: 52ch;
+    color: var(--ink-soft);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.5rem;
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .actions a {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .actions a:hover {
+    color: var(--ink-soft);
+  }
+
+  .actions .primary {
+    display: inline-block;
+    padding: 0.7rem 1.25rem;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    border-radius: 999px;
+    transition: background-color 160ms var(--ease-out);
+  }
+
+  .actions .primary:hover {
+    background: var(--ink-soft);
+    color: var(--paper);
+  }
+
+  .portrait {
+    margin: 0;
+    justify-self: end;
+    width: min(100%, 26rem);
+    padding: 0.6rem 0.6rem 2.4rem;
+    background: var(--paper);
+    box-shadow: 0 18px 40px -22px oklch(23% 0.03 255 / 0.55);
+    rotate: 1.5deg;
+  }
+
+  .portrait img {
+    aspect-ratio: 1;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  /* Sections: a label rail on the left, reading column on the right. */
+  main {
+    padding: 0 var(--gutter);
+    max-width: 90rem;
+  }
+
+  .band {
+    display: grid;
+    grid-template-columns: minmax(10rem, 1fr) minmax(0, 3fr);
+    gap: 1.5rem clamp(2rem, 5vw, 5rem);
+    padding: clamp(3.5rem, 7vw, 6rem) 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .label h2 {
+    font-size: var(--step-1);
+    font-weight: 700;
+    position: sticky;
+    top: 1.5rem;
+  }
+
+  .label-meta {
+    margin-top: 0.4rem;
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+  }
+
+  .content {
+    max-width: var(--measure);
+  }
+
+  .role-line {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 2rem;
+  }
+
+  .highlights {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: clamp(2rem, 4vw, 3rem);
+  }
+
+  .highlights li {
+    display: grid;
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    gap: 0 1rem;
+  }
+
+  .num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: var(--step-2);
+    line-height: 1;
+    color: var(--marigold-deep);
+  }
+
+  .highlights h3 {
+    font-size: var(--step-1);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .rows {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 2.25rem;
+  }
+
+  .row-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .row-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--step-1);
+  }
+
+  .row-role {
+    color: var(--ink-soft);
+  }
+
+  .row-when {
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+    font-size: var(--step--1);
+  }
+
+  .row-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    margin-top: 0.5rem;
+  }
+
+  .education {
+    display: grid;
+    gap: 0.25rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    color: var(--ink-soft);
+  }
+
+  /* Off the clock: photos lead, text trails. */
+  .off {
+    display: grid;
+    grid-template-columns: minmax(10rem, 1fr) minmax(0, 3fr);
+    gap: 1.5rem clamp(2rem, 5vw, 5rem);
+    padding-top: clamp(3.5rem, 7vw, 6rem);
+  }
+
+  .off-text h2 {
+    font-size: var(--step-1);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .off-text p {
+    color: var(--ink-soft);
+  }
+
+  .photos {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .photos-2 {
+    grid-template-columns: 3fr 2fr;
+  }
+
+  .photos-3 {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  .photos-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .photos figure {
+    margin: 0;
+  }
+
+  .photos img {
+    width: 100%;
+    height: 100%;
+    max-height: 32rem;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  .photos-1 img {
+    aspect-ratio: 16 / 9;
+  }
+
+  figcaption {
+    margin-top: 0.5rem;
+    font-size: var(--step--1);
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 52rem) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .portrait {
+      justify-self: start;
+      width: min(70%, 18rem);
+      order: -1;
+    }
+
+    .band,
+    .off {
+      grid-template-columns: 1fr;
+    }
+
+    .label h2 {
+      position: static;
+    }
+
+    .photos-3,
+    .photos-4 {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

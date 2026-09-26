@@ -1,0 +1,56 @@
+---
+// Plain inner page: a slim marigold header strip, then a reading column.
+import Base from '../layouts/Base.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+}
+
+const { title, description, noindex = false } = Astro.props;
+---
+
+<Base title={`${title} · Abdul Hannan Kanji`} description={description} noindex={noindex}>
+  <header class="strip">
+    <a class="home" href="/">Abdul Hannan Kanji</a>
+  </header>
+  <main id="main" class="page">
+    <slot />
+  </main>
+</Base>
+
+<style>
+  .strip {
+    background: var(--marigold);
+    padding: 1.1rem var(--gutter);
+  }
+
+  .home {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .home:hover {
+    text-decoration: underline;
+    color: var(--ink);
+  }
+
+  .page {
+    padding: clamp(3rem, 7vw, 6rem) var(--gutter) 0;
+    max-width: calc(var(--measure) + 2 * var(--gutter));
+  }
+
+  .page :global(h1) {
+    font-size: var(--step-3);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .page :global(p + p) {
+    margin-top: 1rem;
+  }
+</style>

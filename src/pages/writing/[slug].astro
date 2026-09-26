@@ -1,0 +1,48 @@
+---
+import { getCollection, render } from 'astro:content';
+import Page from '../../components/Page.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const fmt = new Intl.DateTimeFormat('en-US', { dateStyle: 'long', timeZone: 'UTC' });
+---
+
+<Page title={post.data.title} description={post.data.description}>
+  <article>
+    <h1>{post.data.title}</h1>
+    <time datetime={post.data.date.toISOString()}>{fmt.format(post.data.date)}</time>
+    <div class="prose"><Content /></div>
+  </article>
+</Page>
+
+<style>
+  time {
+    display: block;
+    margin: -0.75rem 0 2rem;
+    color: var(--ink-soft);
+  }
+
+  .prose :global(h2) {
+    font-size: var(--step-2);
+    margin: 2.5rem 0 1rem;
+  }
+
+  .prose :global(p),
+  .prose :global(ul),
+  .prose :global(ol),
+  .prose :global(pre) {
+    margin: 0 0 1.1rem;
+  }
+
+  .prose :global(pre) {
+    padding: 1rem;
+    overflow-x: auto;
+    background: var(--paper-deep);
+    border-radius: 4px;
+  }
+</style>
