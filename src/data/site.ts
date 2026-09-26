@@ -30,7 +30,7 @@ export const intro = {
 
 export const google = {
   since: '2022',
-  title: 'Software Engineer III (ML) · Ads',
+  title: 'Software Engineer - ML · Ads',
   // Deliberately general: specific systems, launches, and numbers stay on
   // the resume, not on the public site.
   body: [
