@@ -13,7 +13,8 @@ npm run build    # static site in dist/
 
 - **Words:** everything the home page says lives in `src/data/site.ts`.
 - **Photos:** put files in `public/images/` and list them under
-  `offTheClock.photos` in `src/data/site.ts` (one to four).
+  `offTheClock.photos` in `src/data/site.ts` (one to four; none hides the
+  strip). Strip location metadata from phone photos first.
 - **Writing:** add markdown to `src/content/posts/`. A post builds only once its
   front matter says `draft: false`; `example-draft.md` shows the fields. The
   `/writing` page is not linked from the home page yet.

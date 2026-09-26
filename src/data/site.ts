@@ -8,8 +8,8 @@ export const person = {
   location: 'San Francisco',
   email: 'kanji@abdulhannan.in',
   portrait: {
-    src: '/images/abdul.jpeg',
-    alt: 'Abdul, smiling in a cap turned backwards, with the Eiffel Tower soft in the background',
+    src: '/images/portrait.jpg',
+    alt: 'Abdul smiling, with curly black hair and a beard, in a blue T-shirt against a plain wall',
   },
 };
 
@@ -93,14 +93,12 @@ export const education = [
 ];
 
 // Photos for "Off the clock". Drop new files into public/images and add
-// entries here; the strip lays out one to four photos.
-export const offTheClock = {
+// entries here; the strip lays out one to four photos and is hidden when
+// the list is empty.
+export const offTheClock: {
+  body: string;
+  photos: { src: string; alt: string; caption: string }[];
+} = {
   body: 'Outside work I hike, run, and play the drums.',
-  photos: [
-    {
-      src: '/images/landscape-trees.jpg',
-      alt: 'Fog drifting over a dense stand of conifers',
-      caption: 'Where the trail starts',
-    },
-  ],
+  photos: [],
 };

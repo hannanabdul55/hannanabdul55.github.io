@@ -35,8 +35,8 @@ const photoCount = Math.min(offTheClock.photos.length, 4);
         <img
           src={person.portrait.src}
           alt={person.portrait.alt}
-          width="640"
-          height="640"
+          width="800"
+          height="800"
           fetchpriority="high"
         />
       </figure>
@@ -121,16 +121,18 @@ const photoCount = Math.min(offTheClock.photos.length, 4);
         <h2 id="off-heading">Off the clock</h2>
         <p>{offTheClock.body}</p>
       </div>
-      <div class={`photos photos-${photoCount}`}>
-        {
-          offTheClock.photos.slice(0, 4).map((p) => (
-            <figure>
-              <img src={p.src} alt={p.alt} loading="lazy" decoding="async" />
-              <figcaption>{p.caption}</figcaption>
-            </figure>
-          ))
-        }
-      </div>
+      {
+        photoCount > 0 && (
+          <div class={`photos photos-${photoCount}`}>
+            {offTheClock.photos.slice(0, 4).map((p) => (
+              <figure>
+                <img src={p.src} alt={p.alt} loading="lazy" decoding="async" />
+                <figcaption>{p.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        )
+      }
     </section>
   </main>
 </Base>
