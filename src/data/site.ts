@@ -4,7 +4,7 @@
 
 export const person = {
   name: 'Abdul Hannan Kanji',
-  role: 'Software Engineer III (ML), Google',
+  role: 'Software Engineer - ML, Google',
   location: 'San Francisco',
   email: 'kanji@abdulhannan.in',
   portrait: {
