@@ -35,7 +35,6 @@ export const google = {
   // the resume, not on the public site.
   body: [
     'I work on the machine learning behind ads on Google, taking ideas from early analysis and design through to production, together with modeling, serving, and product teams.',
-    'Along the way I mentor engineers, review designs, and share what we learn at internal Ads summits.',
   ],
 };
 
