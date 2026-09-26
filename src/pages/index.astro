@@ -51,19 +51,9 @@ const photoCount = Math.min(offTheClock.photos.length, 4);
       </div>
       <div class="content">
         <p class="role-line">{google.title}</p>
-        <ol class="highlights">
-          {
-            google.highlights.map((h, i) => (
-              <li>
-                <span class="num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-                <div>
-                  <h3>{h.name}</h3>
-                  <p>{h.body}</p>
-                </div>
-              </li>
-            ))
-          }
-        </ol>
+        <div class="story">
+          {google.body.map((para) => <p>{para}</p>)}
+        </div>
       </div>
     </section>
 
@@ -284,32 +274,16 @@ const photoCount = Math.min(offTheClock.photos.length, 4);
     margin-bottom: 2rem;
   }
 
-  .highlights {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  .story {
     display: grid;
-    gap: clamp(2rem, 4vw, 3rem);
-  }
-
-  .highlights li {
-    display: grid;
-    grid-template-columns: 3.5rem minmax(0, 1fr);
-    gap: 0 1rem;
-  }
-
-  .num {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: var(--step-2);
-    line-height: 1;
-    color: var(--marigold-deep);
-  }
-
-  .highlights h3 {
+    gap: 1rem;
     font-size: var(--step-1);
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+    line-height: 1.5;
+  }
+
+  .story p + p {
+    font-size: var(--step-0);
+    color: var(--ink-soft);
   }
 
   .rows {

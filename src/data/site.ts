@@ -23,7 +23,7 @@ export const links = {
 export const googleAnalyticsId = 'G-6C1CWC3HQW';
 
 export const intro = {
-  headline: 'I build ranking and asset-selection models for Play Ads at Google.',
+  headline: 'I build machine learning models for Play Ads at Google.',
   lede:
     'Before that: reinforcement learning and ML-safety research at UMass Amherst, open source with Microsoft’s Fairlearn, and four years building Android at Intuit.',
 };
@@ -31,22 +31,11 @@ export const intro = {
 export const google = {
   since: '2022',
   title: 'Software Engineer III (ML) · Play Ads',
-  highlights: [
-    {
-      name: 'Format-conditional inference',
-      body:
-        'The auction model used to predict once per ad. I proposed predicting once per valid ad format for each query, then designed and shipped it end to end with the auction and infrastructure teams, at no measurable inference cost. Another Google ad stack has since adopted it.',
-    },
-    {
-      name: 'Learned asset selection',
-      body:
-        'Choosing which creative asset to show was a static, score-based rule. I replaced it with a model that picks per impression: framed the problem, chose the training data and loss, built the model and its features, then took it to production with the serving team.',
-    },
-    {
-      name: 'Shipping, together',
-      body:
-        '39 production launches so far, 22 hands-on and 17 led, across ranking, serving, and product teams. I mentor three engineers and talk about this work at internal Ads summits.',
-    },
+  // Deliberately general: specific systems, launches, and numbers stay on
+  // the resume, not on the public site.
+  body: [
+    'I work on the machine learning behind ads on Google Play, taking ideas from early analysis and design through to production, together with modeling, serving, and product teams.',
+    'Along the way I mentor engineers, review designs, and share what we learn at internal Ads summits.',
   ],
 };
 
