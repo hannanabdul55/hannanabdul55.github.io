@@ -1,0 +1,67 @@
+---
+// Topographic contour lines, drawn once at build time. Each ring is a
+// circle whose radius wobbles with a few low-frequency sine terms, so the
+// rings nest like elevation lines around two summits. Deterministic, so
+// every build draws the same map.
+
+interface Summit {
+  cx: number;
+  cy: number;
+  rings: number;
+  step: number;
+  seed: number;
+}
+
+const summits: Summit[] = [
+  { cx: 1180, cy: 170, rings: 14, step: 34, seed: 1 },
+  { cx: 260, cy: 640, rings: 9, step: 38, seed: 7 },
+];
+
+function ring(s: Summit, k: number): string {
+  const r0 = 24 + k * s.step;
+  const points = 96;
+  const d: string[] = [];
+  for (let i = 0; i <= points; i++) {
+    const t = (i / points) * Math.PI * 2;
+    const wobble =
+      0.13 * Math.sin(2 * t + s.seed + k * 0.21) +
+      0.08 * Math.sin(3 * t + s.seed * 1.7 - k * 0.13) +
+      0.04 * Math.sin(5 * t + s.seed * 0.6 + k * 0.4);
+    const r = r0 * (1 + wobble);
+    const x = s.cx + r * Math.cos(t) * 1.25;
+    const y = s.cy + r * Math.sin(t);
+    d.push(`${i === 0 ? 'M' : 'L'}${x.toFixed(1)} ${y.toFixed(1)}`);
+  }
+  return d.join(' ') + 'Z';
+}
+
+const paths = summits.flatMap((s) =>
+  Array.from({ length: s.rings }, (_, k) => ({ d: ring(s, k), index: k % 5 === 4 })),
+);
+---
+
+<svg class="contours" viewBox="0 0 1440 820" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+  {paths.map((p) => <path d={p.d} class={p.index ? 'index' : undefined} />)}
+</svg>
+
+<style>
+  .contours {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  path {
+    fill: none;
+    stroke: var(--marigold-line);
+    stroke-width: 1.1;
+    vector-effect: non-scaling-stroke;
+  }
+
+  /* Every fifth line is an index contour, drawn heavier, as on a real map. */
+  path.index {
+    stroke-width: 2;
+  }
+</style>
