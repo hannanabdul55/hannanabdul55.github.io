@@ -25,7 +25,7 @@ export const googleAnalyticsId = 'G-6C1CWC3HQW';
 export const intro = {
   headline: 'I build machine learning models for ads at Google.',
   lede:
-    'Before that: reinforcement learning and ML-safety research at UMass Amherst, open source with Microsoft’s Fairlearn, and four years building Android at Intuit.',
+    'Before that: reinforcement learning and ML-safety research at UMass Amherst, open source with Microsoft’s Fairlearn, and four years of full stack & mobile work at Intuit.',
 };
 
 export const google = {
