@@ -101,7 +101,8 @@
 }
 
 .entry__body p { margin: 0 0 var(--space-2); }
-.entry__body p:last-child { margin-bottom: 0; }
+.entry__body p:last-child,
+.entry__body ul:last-child { margin-bottom: 0; }
 
 .entry__links {
   margin-top: var(--space-2);

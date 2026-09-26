@@ -6,7 +6,7 @@ version: 2
 
 # Personal info
 name: Abdul Hannan Kanji
-title: Software Engineer (ML), Google
+title: Software Engineer III (ML), Google
 email: kanji at abdulhannan dot in
 website: https://abdulhannan.in
 
@@ -28,9 +28,9 @@ google_analytics: "G-6C1CWC3HQW"
 # About Section
 about_profile_image: images/abdul.jpeg
 about_content: |
-  I'm a software engineer at Google, improving ads recommendation models.
+  I'm a machine learning engineer at Google, building ranking and asset-selection models for Play Ads.
 
-  My broader interest is in safety and fairness in large-scale ML systems. Previously, I contributed to [Microsoft Fairlearn](https://fairlearn.org) and the [Seldonian framework](https://seldonian-fairml.readthedocs.io/), and maintained the [COVID-19 Forecast Hub](https://covid19forecasthub.org) under [Prof. Nicholas Reich](https://reichlab.io). It was the official data source for the CDC's COVID-19 forecasting page.
+  My broader interests are reinforcement learning and safety and fairness in large-scale ML systems. Previously, I contributed to [Microsoft Fairlearn](https://fairlearn.org) and the [Seldonian framework](https://seldonian-fairml.readthedocs.io/), and maintained the [COVID-19 Forecast Hub](https://covid19forecasthub.org) under [Prof. Nicholas Reich](https://reichlab.io). It was the official data source for the CDC's COVID-19 forecasting page.
 
   Before Google I built ML workflows on AWS SageMaker as an applied data scientist at Sway AI, and worked on QuickBooks Mobile as a software engineer at Intuit.
 
@@ -49,6 +49,8 @@ content:
         description: |
           A Python library for training ML models and RL agents under the Seldonian framework, as described in [Thomas et al., Science 2019](https://science.sciencemag.org/cgi/rapidpdf/366/6468/999). Supports any optimizer from [scipy.optimize](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html) and ships a [CMA-ES](https://en.wikipedia.org/wiki/CMA-ES) implementation.
 
+          Extending the framework with stratified sampling increased the probability of returning a safe solution by about 60% in worst-case binary classification settings. For RL, it implements safe policy improvement: policies are optimized with CMA-ES or the cross-entropy method against high-confidence bounds on per-decision importance sampling (PDIS) off-policy estimates.
+
       - title: Fairlearn
         link: https://fairlearn.github.io/
         link_text: Homepage
@@ -56,23 +58,27 @@ content:
           - title: GitHub
             url: https://github.com/fairlearn/fairlearn
         description: |
-          Open-source Python library from Microsoft for training ML models under fairness constraints. I implemented the Equality of Opportunity constraint and worked on scalability experiments for training under it.
+          Open-source Python library from Microsoft for training ML models under fairness constraints. I implemented the [Equality of Opportunity constraint](https://github.com/fairlearn/fairlearn/pull/362) and made [ExponentiatedGradient's estimator copying more efficient](https://github.com/fairlearn/fairlearn/pull/526); both were merged. Benchmarked against TensorFlow Constrained Optimization.
 
   - title: Experience
     layout: list
     content:
       - title: Google
-        sub_title: Software Engineer (ML)
+        sub_title: Software Engineer III (ML)
         caption: 2022–present
         link: https://google.com
         description: |
-          Improving ads recommendation models.
+          Build ranking and asset-selection models for Play Ads.
+
+          - Proposed and led format-conditional inference for the Play Ads auction model: a deep recommendation model that predicts per valid ad format for each query instead of once per ad. Since adopted and launched by another Google ad stack.
+          - Replaced static score-based asset selection with a learned model that picks the best creative asset per ad impression.
+          - Shipped 39 production launches across ranking, serving, and product teams; mentor engineers and present at internal Ads summits.
 
       - title: Sway AI
         sub_title: Applied Data Scientist
         caption: 2021–2022
         description: |
-          Built end-to-end ML workflows on AWS SageMaker, spanning data preprocessing, training, and deployment. Translated client-specific solutions into reusable components for a no-code self-service ML platform.
+          Built end-to-end ML workflows on AWS SageMaker for enterprise clients — visual anomaly detection for an aeronautics client, object detection serving for a radiology client, and caller sentiment analysis for a customer-service client. Translated them into reusable components for a no-code self-service ML platform.
 
       - title: Reich Lab, UMass Amherst
         sub_title: Research Engineer
@@ -86,7 +92,7 @@ content:
         caption: 2015–2019
         link: https://intuit.com
         description: |
-          Shipped on-device ML receipt validation using MLKit, eliminating manual transcription overhead. Built a cross-platform "build once, deploy everywhere" framework adopted by all Intuit product teams, and delivered features end-to-end for QuickBooks Mobile.
+          Shipped on-device ML receipt validation using MLKit, eliminating manual transcription overhead. Built the Android app shell, a shared framework packaging common Intuit services (auth, logging) that was mandated across the QuickBooks, TurboTax, and Mint mobile apps, and delivered transactions features for QuickBooks Mobile on Android.
 
   - title: Education
     layout: list
