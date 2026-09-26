@@ -57,7 +57,7 @@ export const earlier = [
   },
   {
     place: 'Intuit',
-    role: 'Software Development Engineer 2',
+    role: 'Software Development Engineer',
     when: '2015–19',
     body:
       'Built the Android app shell that QuickBooks, TurboTax, and Mint mobile shared for auth and logging; shipped QuickBooks transactions features and on-device ML receipt validation.',
