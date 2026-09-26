@@ -23,18 +23,18 @@ export const links = {
 export const googleAnalyticsId = 'G-6C1CWC3HQW';
 
 export const intro = {
-  headline: 'I build machine learning models for Play Ads at Google.',
+  headline: 'I build machine learning models for ads at Google.',
   lede:
     'Before that: reinforcement learning and ML-safety research at UMass Amherst, open source with Microsoft’s Fairlearn, and four years building Android at Intuit.',
 };
 
 export const google = {
   since: '2022',
-  title: 'Software Engineer III (ML) · Play Ads',
+  title: 'Software Engineer III (ML) · Ads',
   // Deliberately general: specific systems, launches, and numbers stay on
   // the resume, not on the public site.
   body: [
-    'I work on the machine learning behind ads on Google Play, taking ideas from early analysis and design through to production, together with modeling, serving, and product teams.',
+    'I work on the machine learning behind ads on Google, taking ideas from early analysis and design through to production, together with modeling, serving, and product teams.',
     'Along the way I mentor engineers, review designs, and share what we learn at internal Ads summits.',
   ],
 };

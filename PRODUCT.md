@@ -13,7 +13,7 @@ second, arriving through open-source work, research, or (later) writing,
 with more time and more interest in the technical detail.
 
 ## Product Purpose
-A personal site for an ML engineer at Google (Play Ads): show the work and
+A personal site for an ML engineer at Google (Ads): show the work and
 the thinking behind it, carry the resume and contact links, and leave room
 for writing later. Success: a hiring manager can say what Abdul works on
 after one screen, and reaches the resume, LinkedIn, or email in one click.
